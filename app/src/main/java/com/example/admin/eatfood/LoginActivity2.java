@@ -59,7 +59,7 @@ public class LoginActivity2 extends AppCompatActivity {
                 .getText().toString();
         String password = ((EditText)findViewById(R.id.password))
                 .getText().toString();
-        Log.d("AUTH", email+"/"+password);
+        Log.d("auth", email+"/"+password);
 
         auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
