@@ -1,35 +1,66 @@
 {
   "project_info": {
-    "project_number": "1039289648153",
-    "firebase_url": "https://eatfood02.firebaseio.com",
-    "project_id": "eatfood02",
-    "storage_bucket": "eatfood02.appspot.com"
+    "project_number": "372357299957",
+    "firebase_url": "https://test-user-5393b.firebaseio.com",
+    "project_id": "test-user-5393b",
+    "storage_bucket": "test-user-5393b.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1039289648153:android:f08e87e452cd7555",
+        "mobilesdk_app_id": "1:372357299957:android:9d54c73990cbd4df",
+        "android_client_info": {
+          "package_name": "com.eatfood.firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "372357299957-46p2770bg494l8huqc9ubu2c65j8p5e2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0fUkzV8oJfQjqKDq_6UJ6FcWSKZQ60z0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:372357299957:android:f08e87e452cd7555",
         "android_client_info": {
           "package_name": "com.example.admin.eatfood"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1039289648153-h1mha2fska17q23njiq5f33qs7dqs8rr.apps.googleusercontent.com",
+          "client_id": "372357299957-soo56dj83o6dcccje5lnir899avpulqu.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.admin.eatfood",
-            "certificate_hash": "f014668a4502ee64c5086961178046aef3bd1f87"
+            "certificate_hash": "48608ac465d5916a542cbde207e4e5fae917dbe9"
           }
         },
         {
-          "client_id": "1039289648153-42805ikiqop4bb6duv9cplq0d2jmjqan.apps.googleusercontent.com",
+          "client_id": "372357299957-46p2770bg494l8huqc9ubu2c65j8p5e2.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAk3ILFT5UkKzdo9P7mWIRR4vU9VLcBPjE"
+          "current_key": "AIzaSyB0fUkzV8oJfQjqKDq_6UJ6FcWSKZQ60z0"
         }
       ],
       "services": {
@@ -40,7 +71,7 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "1039289648153-42805ikiqop4bb6duv9cplq0d2jmjqan.apps.googleusercontent.com",
+              "client_id": "372357299957-46p2770bg494l8huqc9ubu2c65j8p5e2.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
