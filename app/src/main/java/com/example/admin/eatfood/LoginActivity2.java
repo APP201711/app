@@ -75,8 +75,10 @@ public class LoginActivity2 extends AppCompatActivity {
                 .getText().toString();
         String password = ((EditText)findViewById(R.id.password))
                 .getText().toString();
+
         Log.d("AUTH", email+"/"+password);
         Toast.makeText(this,"login init",Toast.LENGTH_LONG).show();
+
         auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
