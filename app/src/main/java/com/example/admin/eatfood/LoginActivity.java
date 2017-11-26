@@ -96,18 +96,18 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         //mProgressView = findViewById(R.id.login_progress);
 
 
-        //跳到註冊畫面
-        btn_register = (Button) findViewById(R.id.btn_register);
-
-        Button nextPageBtn = (Button) findViewById(R.id.btn_register);
-        nextPageBtn.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(LoginActivity.this, SignActivity.class);
-                startActivity(intent);
-            }
-        });
+//        //跳到註冊畫面
+//        btn_register = (Button) findViewById(R.id.btn_register);
+//
+//        Button nextPageBtn = (Button) findViewById(R.id.btn_register);
+//        nextPageBtn.setOnClickListener(new OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent();
+//                intent.setClass(LoginActivity.this, SignActivity.class);
+//                startActivity(intent);
+//            }
+//        });
     }
     private void populateAutoComplete() {
         if (!mayRequestContacts()) {

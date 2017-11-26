@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "372357299957",
-    "firebase_url": "https://test-user-5393b.firebaseio.com",
-    "project_id": "test-user-5393b",
-    "storage_bucket": "test-user-5393b.appspot.com"
+    "project_number": "495522310609",
+    "firebase_url": "https://eatfood01-47a11.firebaseio.com",
+    "project_id": "eatfood01-47a11",
+    "storage_bucket": "eatfood01-47a11.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:372357299957:android:9d54c73990cbd4df",
+        "mobilesdk_app_id": "1:495522310609:android:a7bb98fc9dfefa50",
         "android_client_info": {
-          "package_name": "com.eatfood.firebase"
+          "package_name": "com.eatfood.android"
         }
       },
       "oauth_client": [
         {
-          "client_id": "372357299957-46p2770bg494l8huqc9ubu2c65j8p5e2.apps.googleusercontent.com",
+          "client_id": "495522310609-s9cm2s8cftke6m76prgu89v09sflu98a.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB0fUkzV8oJfQjqKDq_6UJ6FcWSKZQ60z0"
+          "current_key": "AIzaSyDc16LnD2UbylJvu7T5YcoQXLnw6bqFUVw"
         }
       ],
       "services": {
@@ -39,28 +39,28 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:372357299957:android:f08e87e452cd7555",
+        "mobilesdk_app_id": "1:495522310609:android:f08e87e452cd7555",
         "android_client_info": {
           "package_name": "com.example.admin.eatfood"
         }
       },
       "oauth_client": [
         {
-          "client_id": "372357299957-soo56dj83o6dcccje5lnir899avpulqu.apps.googleusercontent.com",
+          "client_id": "495522310609-gj18qd939pqo5tbkpt1ifba6b976h572.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.admin.eatfood",
-            "certificate_hash": "48608ac465d5916a542cbde207e4e5fae917dbe9"
+            "certificate_hash": "36e34a908047bb9623333f9a746a828f0c21b801"
           }
         },
         {
-          "client_id": "372357299957-46p2770bg494l8huqc9ubu2c65j8p5e2.apps.googleusercontent.com",
+          "client_id": "495522310609-s9cm2s8cftke6m76prgu89v09sflu98a.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB0fUkzV8oJfQjqKDq_6UJ6FcWSKZQ60z0"
+          "current_key": "AIzaSyDc16LnD2UbylJvu7T5YcoQXLnw6bqFUVw"
         }
       ],
       "services": {
@@ -71,7 +71,7 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "372357299957-46p2770bg494l8huqc9ubu2c65j8p5e2.apps.googleusercontent.com",
+              "client_id": "495522310609-s9cm2s8cftke6m76prgu89v09sflu98a.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
