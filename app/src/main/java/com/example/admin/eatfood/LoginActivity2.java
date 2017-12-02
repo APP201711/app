@@ -86,7 +86,7 @@ public class LoginActivity2 extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (!task.isSuccessful()){
                             Log.d("onComplete", "登入失敗");
-                            register(email, password);
+//                            register(email, password);
                         }
                     }
                 });
@@ -109,36 +109,6 @@ public class LoginActivity2 extends AppCompatActivity {
                     }
                 });
 
-    }
-
-    private void register(final String email, final String password) {
-        new AlertDialog.Builder(LoginActivity2.this)
-                .setTitle("登入問題")
-                .setMessage("無此帳號，是否要以此帳號與密碼註冊?")
-                .setPositiveButton("註冊", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                createUser(email, password);
-                            }
-                        })
-                .setNeutralButton("取消", null)
-                .show();
-    }
-
-    private void createUser(String email, String password) {
-        auth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(
-                        new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                String message = task.isSuccessful() ? "註冊成功" : "註冊失敗";
-                                FirebaseUser user = task.getResult().getUser();
-                                new AlertDialog.Builder(LoginActivity2.this)
-                                        .setMessage(message+"uid = "+ user.getUid())
-                                        .setPositiveButton("OK", null)
-                                        .show();
-                            }
-                        });
     }
 
 }
