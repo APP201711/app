@@ -24,13 +24,12 @@ import com.google.firebase.database.FirebaseDatabase;
 public class SignActivity extends AppCompatActivity {
     FirebaseAuth auth;
     FirebaseAuth.AuthStateListener authListener;
-
     protected String email;
     protected String password;
     protected String phone;
     protected String sex;
     protected String address;
-
+    User user = new User();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +44,7 @@ public class SignActivity extends AppCompatActivity {
             }
         });
     }
+
 
     private void register() {
         this.email = ((EditText)findViewById(R.id.email)).getText().toString();
@@ -81,10 +81,8 @@ public class SignActivity extends AppCompatActivity {
     }
 
     private void createProfile(String uid){
-        UserModel user1 = new UserModel(this.email,this.phone,this.sex,this.address);
-        DatabaseReference memberTable =  FirebaseDatabase.getInstance().getReference();
-        memberTable.child("member_table").child(uid).setValue(user1);
-//        user1.create(uid);
+        User user = new User(this.email,this.phone,this.sex,this.address);
+        user.create(uid);
         Toast.makeText(getApplicationContext(),"OK",Toast.LENGTH_LONG).show();
     }
 }
