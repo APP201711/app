@@ -132,8 +132,9 @@ public class LoginActivity2 extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 String message = task.isSuccessful() ? "註冊成功" : "註冊失敗";
+                                FirebaseUser user = task.getResult().getUser();
                                 new AlertDialog.Builder(LoginActivity2.this)
-                                        .setMessage(message)
+                                        .setMessage(message+"uid = "+ user.getUid())
                                         .setPositiveButton("OK", null)
                                         .show();
                             }
