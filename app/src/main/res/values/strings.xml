@@ -34,11 +34,11 @@
     <string name="write_description">說明...</string>
     <string name="preview_post">預覽</string>
     <string name="check_post">確認送出</string>
-    <string name="title_activity_preview">PreviewActivity</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
-    <string name="title_person">Person</string>
+    <!--導覽-->
+    <string name="title_home">主頁面</string>
+    <string name="title_dashboard">貼文</string>
+    <string name="title_notifications">歷史紀錄</string>
+    <string name="title_person">個人主頁</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Home</string>
