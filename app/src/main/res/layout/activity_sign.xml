@@ -208,9 +208,15 @@
                         android:layout_height="wrap_content"
                         android:hint="hint"
                         android:inputType="textPostalAddress" />
-                </android.support.design.widget.TextInputLayout>
-            </LinearLayout>
 
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="註冊" />
         </LinearLayout>
 
     </ScrollView>
