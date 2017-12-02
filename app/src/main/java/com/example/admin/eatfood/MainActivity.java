@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-public class PreviewActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     private TextView mTextMessage;
 
@@ -26,9 +26,6 @@ public class PreviewActivity extends AppCompatActivity {
                 case R.id.navigation_notifications:
                     mTextMessage.setText(R.string.title_notifications);
                     return true;
-//                case R.id.navigation_person:
-//                    mTextMessage.setText(R.string.title_person);
-//                    return true;
             }
             return false;
         }
@@ -37,7 +34,7 @@ public class PreviewActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_preview);
+        setContentView(R.layout.activity_main);
 
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
