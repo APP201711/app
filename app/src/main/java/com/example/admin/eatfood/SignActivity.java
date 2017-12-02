@@ -9,6 +9,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -16,10 +18,19 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class SignActivity extends AppCompatActivity {
     FirebaseAuth auth;
     FirebaseAuth.AuthStateListener authListener;
+
+    protected String email;
+    protected String password;
+    protected String phone;
+    protected String sex;
+    protected String address;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,15 +41,23 @@ public class SignActivity extends AppCompatActivity {
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final String email = ((EditText)findViewById(R.id.email)).getText().toString();
-                final String password = ((EditText)findViewById(R.id.password)).getText().toString();
-                register(email,password);
+                register();
             }
         });
     }
 
-    private void register(final String email, final String password) {
-        Toast.makeText(getApplicationContext(), password, Toast.LENGTH_LONG).show();
+    private void register() {
+        this.email = ((EditText)findViewById(R.id.email)).getText().toString();
+        this.password = ((EditText)findViewById(R.id.password)).getText().toString();
+        String chk_password = ((EditText)findViewById(R.id.chk_password)).getText().toString();
+        this.phone = ((EditText)findViewById(R.id.phone)).getText().toString();
+        this.address = ((EditText)findViewById(R.id.address)).getText().toString();
+
+        RadioGroup r = (RadioGroup)findViewById(R.id.sex);
+        int selectedId = r.getCheckedRadioButtonId();
+        RadioButton radioButton = (RadioButton) findViewById(selectedId);
+        this.sex = radioButton.getText().toString();
+
         createUser(email, password);
     }
 
@@ -51,11 +70,21 @@ public class SignActivity extends AppCompatActivity {
                         if(task.isSuccessful()){
                             //display some message here
                             Toast.makeText(getApplicationContext(),"Successfully registered",Toast.LENGTH_LONG).show();
+                            FirebaseUser user = auth.getCurrentUser();
+                            createProfile(user.getUid());
                         }else{
                             //display some message here
                             Toast.makeText(getApplicationContext(),"Registration Error",Toast.LENGTH_LONG).show();
                         }
                     }
                 });
+    }
+
+    private void createProfile(String uid){
+        UserModel user1 = new UserModel(this.email,this.phone,this.sex,this.address);
+        DatabaseReference memberTable =  FirebaseDatabase.getInstance().getReference();
+        memberTable.child("member_table").child(uid).setValue(user1);
+//        user1.create(uid);
+        Toast.makeText(getApplicationContext(),"OK",Toast.LENGTH_LONG).show();
     }
 }
