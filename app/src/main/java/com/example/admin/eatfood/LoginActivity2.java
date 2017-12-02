@@ -116,12 +116,10 @@ public class LoginActivity2 extends AppCompatActivity {
                 .setTitle("登入問題")
                 .setMessage("無此帳號，是否要以此帳號與密碼註冊?")
                 .setPositiveButton("註冊", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                Intent intent = new Intent();
-                                intent.setClass(LoginActivity2.this, SignActivity.class);
-                                startActivity(intent);
-                            }
+//                            @Override
+//                            public void onClick(DialogInterface dialog, int which) {
+//                                createUser(email, password);
+//                            }
                         })
                 .setNeutralButton("取消", null)
                 .show();
