@@ -1,5 +1,6 @@
 package com.example.admin.eatfood;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -26,27 +27,12 @@ public class LoginActivity2 extends AppCompatActivity {
     FirebaseAuth.AuthStateListener authListener;
     private String userUID;
     private Button btn_register;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login2);
-        auth = FirebaseAuth.getInstance();
-
-        authListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(
-                    @NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                Log.d("System Log", String.valueOf(user));
-                Log.d("System Log", "登入初始化");
-                if (user!=null) {
-                    Log.d("onAuthStateChanged", "登入:"+ user.getUid());
-                    userUID =  user.getUid();
-                }else{
-                    Log.d("onAuthStateChanged", "已登出");
-                }
-            }
-        };
 
         //跳到註冊畫面
         btn_register = (Button) findViewById(R.id.btn_register);
@@ -55,6 +41,7 @@ public class LoginActivity2 extends AppCompatActivity {
         nextPageBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent();
                 intent.setClass(LoginActivity2.this, SignActivity.class);
                 startActivity(intent);
@@ -62,52 +49,18 @@ public class LoginActivity2 extends AppCompatActivity {
         });
 
     }
-     @Override
-    protected void onStart() {
-        super.onStart();
-        auth.addAuthStateListener(authListener);
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        auth.removeAuthStateListener(authListener);
-    }
     public void login(View v){
 
 
-        final String email = ((EditText)findViewById(R.id.email)).getText().toString();
+        final String username = ((EditText)findViewById(R.id.Username)).getText().toString();
         final String password = ((EditText)findViewById(R.id.password)).getText().toString();
 
-        Log.d("AUTH", email+"/"+password);
-        auth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (!task.isSuccessful()){
-                            Log.d("onComplete", "登入失敗");
-//                            register(email, password);
-                        }
-                    }
-                });
+        Log.d("AUTH", username+"/"+password);
+        User usr = new User(username,password);
 
-
-        auth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d("login", "signInWithEmail:success");
-                            FirebaseUser user = auth.getCurrentUser();
-                            Toast.makeText(getApplicationContext(), "success",Toast.LENGTH_LONG).show();
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w("Login", "signInWithEmail:failure", task.getException());
-                            Toast.makeText(getApplicationContext(), "error",Toast.LENGTH_LONG).show();
-                        }
-                    }
-                });
+        if(usr.LoginStatus){
+            Toast.makeText(getApplicationContext(),"OK",Toast.LENGTH_LONG).show();
+        }
 
     }
 
