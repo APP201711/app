@@ -1,67 +1,150 @@
 package com.example.admin.eatfood;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import static java.lang.Boolean.valueOf;
 
 /**
- * Created by img21 on 2017/12/2.
+ * Created by ncut on 2017/12/4.
  */
 
-public class User{
-    DatabaseReference memberTable =  FirebaseDatabase.getInstance().getReference();
+public class User {
 
-    FirebaseAuth auth;
-    public String email;
+    public static User usr;
+
+    public boolean LoginStatus;
+    public String address;
+    public String id;
+    public String password;
+    public String username;
     public String phone;
     public String sex;
-    public String address;
-    public boolean status = false;
+    public Boolean UpdateStatus;
 
-    public User(){
-//        FirebaseUser user = auth.getCurrentUser();
-//        String uid = user.getUid().toString();
-        String uid = "03Ic1jXEoRU5dvE3mwNE5SGwKQ42";
-        memberTable.child("member_table").child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                UserModel usr = dataSnapshot.getValue(UserModel.class);
-                dataset(usr);
+    public Boolean RegisterStatus;
+    public String RegisterError;
+
+    protected User (String username, String password){
+        try {
+            String result = connectDB.db("username="+username+"&password="+password+"&type=login");
+            Log.e("result", result);
+            JSONArray jsonArray = null;
+            try {
+                jsonArray = new JSONArray(result);
+                JSONObject LoginStatus = jsonArray.getJSONObject(0);
+                this.LoginStatus = Boolean.valueOf(LoginStatus.getString("status"));
+                Log.e("LoginStatus", String.valueOf(this.LoginStatus));
+                if(this.LoginStatus){
+                    JSONObject Data = jsonArray.getJSONObject(0);
+                    JSONObject _Data = Data.getJSONObject("data");
+                    this.address = _Data.getString("address");
+                    this.id = _Data.getString("id");
+                    this.password = _Data.getString("password");
+                    this.username = _Data.getString("username");
+                    this.phone = _Data.getString("phone");
+                    this.sex = _Data.getString("sex");
+                    usr = this;
+                }
+//                Log.e("address", this.address);
+            } catch (JSONException e1) {
+                e1.printStackTrace();
             }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
 
+        } catch(Exception e) {
+            Log.e("error_log_tag", e.toString());
+        }
+    }
+
+    protected User (String username, String password,String address, String phone,String sex){
+        if(check_usrname(username)){
+            try {
+                String result = connectDB.db("username="+username+"&password="+password+"&address="+address+"&phone="+phone+"&sex="+sex+"&type=register_user");
+                Log.e("result", result);
+                JSONArray jsonArray = null;
+                try {
+                    jsonArray = new JSONArray(result);
+                    JSONObject LoginStatus = jsonArray.getJSONObject(0);
+                    this.RegisterStatus = Boolean.valueOf(LoginStatus.getString("status"));
+                    Log.e("LoginStatus", String.valueOf(this.RegisterStatus));
+//                if(this.RegisterStatus){
+//                    JSONObject Data = jsonArray.getJSONObject(0);
+//                    JSONObject _Data = Data.getJSONObject("data");
+//                    this.address = _Data.getString("address");
+//                    this.id = _Data.getString("id");
+//                    this.password = _Data.getString("password");
+//                    this.username = _Data.getString("username");
+//                    this.phone = _Data.getString("phone");
+//                    this.sex = _Data.getString("sex");
+//                    usr = this;
+//                }
+//                Log.e("address", this.address);
+                } catch (JSONException e1) {
+                    Log.e("error_log_tag", e1.toString());
+                }
+
+            } catch(Exception e) {
+                Log.e("error_log_tag", e.toString());
             }
-        });
+        }else{
+            this.RegisterStatus = Boolean.valueOf(false);
+            this.RegisterError = "帳號已經有人使用";
+        }
 
     }
 
+    protected boolean check_usrname(String username){
+        boolean chk = false;
+        try {
+            String result = connectDB.db("username="+username+"&type=check_usrname");
+            Log.e("chk_username", result);
+            JSONArray jsonArray = null;
+            try {
+                jsonArray = new JSONArray(result);
+                JSONObject LoginStatus = jsonArray.getJSONObject(0);
+                chk = Boolean.valueOf(LoginStatus.getString("status"));
+                Log.e("check_usrname", String.valueOf(chk));
+                return chk;
+            } catch (JSONException e1) {
+                Log.e("error_log_tag", e1.toString());
+            }
 
-
-
-    public User(String email, String phone, String sex, String address) {
-        this.email = email;
-        this.phone = phone;
-        this.sex = sex;
-        this.address = address;
+        } catch(Exception e) {
+            Log.e("error_log_tag", e.toString());
+        }
+        return chk;
     }
 
-    public void create(String uid){
-        UserModel user1 = new UserModel(this.email,this.phone,this.sex,this.address);
-        memberTable.child("member_table").child(uid).setValue(user1);
+    protected static void update(){
+        Log.e("first address", usr.address);
+        try {
+            String result = connectDB.db("query_string= update `user` set address = '"+usr.address+"', phone = '"+usr.phone+"' , password = '"+usr.password+"'"+"where `username` = '" + usr.username +"'"+"&type=update_user");
+            Log.e("Update result", result);
+            JSONArray jsonArray = null;
+            try {
+                jsonArray = new JSONArray(result);
+                JSONObject LoginStatus = jsonArray.getJSONObject(0);
+                usr.UpdateStatus = Boolean.valueOf(LoginStatus.getString("status"));
+                Log.e("LoginStatus", String.valueOf(usr.UpdateStatus));
+                Log.e("address", usr.address);
+            } catch (JSONException e1) {
+                e1.printStackTrace();
+                usr.UpdateStatus =false;
+            }
+
+        } catch(Exception e) {
+            Log.e("error_log_tag", e.toString());
+            usr.UpdateStatus =false;
+        }
     }
 
-    private void dataset(UserModel usr) {
-        this.email = usr.email;
-        this.address = usr.address;
-        this.phone = usr.phone;
-        this.sex = usr.sex;
-        this.status = true;
+    protected static User getUsr(){
+        return usr;
     }
+
 }
