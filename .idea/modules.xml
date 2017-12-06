@@ -4,6 +4,11 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/android_eatfoot.iml" filepath="$PROJECT_DIR$/android_eatfoot.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+<<<<<<< HEAD
+=======
+      <module fileurl="file://D:\專題\android_eatfoot\app.iml" filepath="D:\專題\android_eatfoot\app.iml" />
+      <module fileurl="file://D:\專題\android_eatfoot\app\app-app.iml" filepath="D:\專題\android_eatfoot\app\app-app.iml" />
+>>>>>>> master
     </modules>
   </component>
 </project>
