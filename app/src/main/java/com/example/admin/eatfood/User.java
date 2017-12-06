@@ -65,13 +65,13 @@ public class User {
         if(check_usrname(username)){
             try {
                 String result = connectDB.db("username="+username+"&password="+password+"&address="+address+"&phone="+phone+"&sex="+sex+"&type=register_user");
-                Log.e("result", result);
-                JSONArray jsonArray = null;
-                try {
-                    jsonArray = new JSONArray(result);
-                    JSONObject LoginStatus = jsonArray.getJSONObject(0);
-                    this.RegisterStatus = Boolean.valueOf(LoginStatus.getString("status"));
-                    Log.e("LoginStatus", String.valueOf(this.RegisterStatus));
+                    Log.e("result", result);
+                    JSONArray jsonArray = null;
+                    try {
+                        jsonArray = new JSONArray(result);
+                        JSONObject LoginStatus = jsonArray.getJSONObject(0);
+                        this.RegisterStatus = Boolean.valueOf(LoginStatus.getString("status"));
+                        Log.e("RegisterStatus", String.valueOf(this.RegisterStatus));
 //                if(this.RegisterStatus){
 //                    JSONObject Data = jsonArray.getJSONObject(0);
 //                    JSONObject _Data = Data.getJSONObject("data");
@@ -109,7 +109,6 @@ public class User {
                 JSONObject LoginStatus = jsonArray.getJSONObject(0);
                 chk = Boolean.valueOf(LoginStatus.getString("status"));
                 Log.e("check_usrname", String.valueOf(chk));
-                return chk;
             } catch (JSONException e1) {
                 Log.e("error_log_tag", e1.toString());
             }
