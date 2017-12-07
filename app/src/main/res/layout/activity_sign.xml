@@ -35,12 +35,13 @@
                 <TextView
                     android:id="@+id/textView3"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:gravity="center_vertical"
                     android:text="@string/prompt_email" />
 
                 <android.support.design.widget.TextInputLayout
-                    android:layout_width="289dp"
+                    android:layout_width="247dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1">
 
@@ -48,7 +49,7 @@
                         android:id="@+id/Username"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="hint"
+                        android:hint="輸入Email"
                         android:inputType="textEmailAddress"
                         android:textSize="14sp" />
                 </android.support.design.widget.TextInputLayout>
@@ -90,8 +91,9 @@
 
                 <TextView
                     android:id="@+id/textView4"
-                    android:layout_width="45dp"
+                    android:layout_width="66dp"
                     android:layout_height="match_parent"
+                    android:gravity="center_vertical"
                     android:text="@string/password" />
 
                 <android.support.design.widget.TextInputLayout
@@ -110,7 +112,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="363dp"
+                android:layout_width="344dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
@@ -118,19 +120,20 @@
 
                 <TextView
                     android:id="@+id/textView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="66dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="0"
+                    android:gravity="center_vertical"
                     android:text="@string/check_pwd" />
 
                 <android.support.design.widget.TextInputLayout
-                    android:layout_width="304dp"
+                    android:layout_width="276dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0">
 
                     <android.support.design.widget.TextInputEditText
                         android:id="@+id/chk_password"
-                        android:layout_width="match_parent"
+                        android:layout_width="287dp"
                         android:layout_height="wrap_content"
                         android:hint="@string/check_pwd"
                         android:inputType="textPassword"
@@ -149,9 +152,10 @@
 
                 <TextView
                     android:id="@+id/textView5"
-                    android:layout_width="112dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="131dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:gravity="center_vertical"
                     android:text="@string/telephone" />
 
                 <android.support.design.widget.TextInputLayout
@@ -178,9 +182,10 @@
 
                 <TextView
                     android:id="@+id/textView6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="46dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:gravity="center_vertical"
                     android:text="@string/sex" />
 
                 <RadioGroup
@@ -222,9 +227,10 @@
 
                 <TextView
                     android:id="@+id/textView7"
-                    android:layout_width="57dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="89dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:gravity="center_vertical"
                     android:text="@string/address" />
 
                 <android.support.design.widget.TextInputLayout
@@ -236,7 +242,8 @@
                         android:id="@+id/address"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="hint"
+                        android:gravity="center_vertical"
+                        android:hint="輸入地址"
                         android:inputType="textPostalAddress"
                         android:textSize="14sp" />
 
@@ -252,7 +259,9 @@
                 android:layout_marginRight="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_weight="1"
-                android:text="註冊" />
+                android:background="@color/colorPrimary"
+                android:text="註冊"
+                android:textColor="@color/colorText" />
         </LinearLayout>
 
     </ScrollView>
