@@ -87,16 +87,41 @@ public class Orders {
         return chk;
     }
 
-    protected static Orders[] orders_all(int n){   /* 發布者 列表 -0:未回應 1:所有列表 */
+    protected static Orders[] orders_for_posts(){
         Orders ord[] = new Orders[0];
         User usr = User.getUsr();
         try {
             String result = "";
-            if(n == 0){
-                result = connectDB.db("owner_id="+usr.id+"&type=get_orders");
-            }else{
-                result = connectDB.db("owner_id="+usr.id+"&type=orders_all");
+            result = connectDB.db("owner_id="+usr.id+"&type=orders_for_posts");
+            Log.e("result", result);
+            JSONArray jsonArray = null;
+            try {
+                jsonArray = new JSONArray(result);
+                ord = new Orders[jsonArray.length()];
+                for(int i = 0; i < jsonArray.length(); i++) {
+                    JSONObject jsonData = jsonArray.getJSONObject(i);
+                    ord[i].order_id = jsonData.getInt("order_id");
+                    ord[i].post_id = jsonData.getInt("post_id");
+                    ord[i].post = Posts.getPost(ord[i].post_id);
+                    ord[i].user_id = jsonData.getInt("user_id");
+                    ord[i].user = User.getUsr(ord[i].user_id);
+                    ord[i].status = jsonData.getInt("status");
+                }
+            } catch (JSONException e1) {
+                e1.printStackTrace();
             }
+        } catch(Exception e) {
+            Log.e("error_log_tag", e.toString());
+        }
+        return ord;
+    }
+
+    protected static Orders[] orders_for_users(){
+        Orders ord[] = new Orders[0];
+        User usr = User.getUsr();
+        try {
+            String result = "";
+            result = connectDB.db("owner_id="+usr.id+"&type=orders_for_users");
             Log.e("result", result);
             JSONArray jsonArray = null;
             try {
