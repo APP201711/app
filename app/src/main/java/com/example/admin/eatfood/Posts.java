@@ -17,6 +17,7 @@ public class Posts {
     protected String cate_name;
     protected String restaurant_name;
     protected String restaurant_branch;
+    protected String restaurant_address;
     protected String meeting_date;
     protected int sex_limit;
     protected int people_limit;
@@ -24,6 +25,8 @@ public class Posts {
     protected int owner_id;
     protected User owner;
     protected Boolean reqstatus; /* 是否提出申請 */
+
+    protected Posts(){}
 
     protected static Posts getPost(int id){
         Posts pst = new Posts();
@@ -42,6 +45,7 @@ public class Posts {
             pst.cate_id = _Data.getInt("cate_id");
             pst.cate_name = _Data.getString("category_name");
             pst.restaurant_branch = _Data.getString("restaurant_branch");
+            pst.restaurant_address = _Data.getString("restaurant_address");
             pst.meeting_date = _Data.getString("meeting_date");
             pst.sex_limit = Integer.parseInt(_Data.getString("sex_limit"));
             pst.people_limit = Integer.parseInt(_Data.getString("people_limit"));
@@ -55,10 +59,10 @@ public class Posts {
     }
 
 
-    protected static boolean createPost(int cate_id, String restaurant_name, String restaurant_branch, String meeting_date, int sex_limit, int people_limit, String content, int owner_id){
+    protected boolean create(){
         Boolean CreateStatus = false;
         try {
-            String result = connectDB.db("cate_id="+cate_id+"&restaurant_name="+restaurant_name+"&restaurant_branch="+restaurant_branch+"&meeting_date="+meeting_date+"&sex_limit="+sex_limit+"&people_limit="+people_limit+"&content="+content+"&owner_id="+owner_id+"&type=create_post");
+            String result = connectDB.db("cate_id="+this.cate_id+"&restaurant_name="+this.restaurant_name+"&restaurant_branch="+this.restaurant_branch+"&restaurant_address="+this.restaurant_address+"&meeting_date="+this.meeting_date+"&sex_limit="+this.sex_limit+"&people_limit="+this.people_limit+"&content="+this.content+"&owner_id="+this.owner_id+"&type=create_post");
             Log.e("result", result);
             JSONArray jsonArray = null;
             try {
@@ -76,19 +80,19 @@ public class Posts {
         return CreateStatus;
     }
 
-    protected static String[][] getCate(){
-        String[][] cate = new String[0][2];
+    protected static String[] getCate(){
+        String[] cate = new String[0];
         try {
             String result = connectDB.db("type=get_cate");
             Log.e("result", result);
             JSONArray jsonArray = null;
             try {
                 jsonArray = new JSONArray(result);
-                cate = new String[jsonArray.length()][2];
+                cate = new String[jsonArray.length()];
                 for(int i = 0; i < jsonArray.length(); i++) {
                     JSONObject jsonData = jsonArray.getJSONObject(i);
-                    cate[i][0] =  jsonData.getString("id");
-                    cate[i][1] =  jsonData.getString("name");
+//                    cate[i][0] =  jsonData.getString("id");
+                    cate[i] =  jsonData.getString("name");
                 }
             } catch (JSONException e1) {
                 e1.printStackTrace();
@@ -102,7 +106,7 @@ public class Posts {
 
     public void update() {
         try {
-            String result = connectDB.db("id="+this.id+"&restaurant_name="+this.restaurant_name+"&restaurant_branch="+this.restaurant_branch+"&meeting_date="+this.meeting_date+"&sex_limit="+this.sex_limit+"&people_limit="+this.people_limit+"&content="+this.content+"&type=update_post");
+            String result = connectDB.db("id="+this.id+"&restaurant_name="+this.restaurant_name+"&restaurant_branch="+this.restaurant_branch+"&restaurant_address="+this.restaurant_address+"&meeting_date="+this.meeting_date+"&sex_limit="+this.sex_limit+"&people_limit="+this.people_limit+"&content="+this.content+"&type=update_post");
             Log.e("result", result);
             JSONArray jsonArray = null;
             try {
@@ -153,6 +157,7 @@ public class Posts {
                     pst[i].cate_name = jsonData.getString("category_name");
                     pst[i].restaurant_name = jsonData.getString("restaurant_name");
                     pst[i].restaurant_branch = jsonData.getString("restaurant_branch");
+                    pst[i].restaurant_address = jsonData.getString("restaurant_address");
                     pst[i].meeting_date = jsonData.getString("meeting_date");
                     pst[i].sex_limit = jsonData.getInt("sex_limit");
                     pst[i].content = jsonData.getString("content");

@@ -1,14 +1,11 @@
 package com.example.admin.eatfood;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.util.Log;
 
+import android.util.Log;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import static java.lang.Boolean.valueOf;
 
 /**
  * Created by ncut on 2017/12/4.
@@ -18,9 +15,9 @@ public class User {
 
     public static User usr;
 
-    public boolean LoginStatus;
+    public Boolean LoginStatus = false;
     public String address;
-    public String id;
+    public int id;
     public String password;
     public String username;
     public String phone;
@@ -29,8 +26,8 @@ public class User {
 
     protected User(){}
 
-    protected static User login (String username, String password){
-        User usr = new User();
+    protected static User login(String username, String password){
+        User user = new User();
         try {
             String result = connectDB.db("username="+username+"&password="+password+"&type=login");
             Log.e("result", result);
@@ -38,19 +35,20 @@ public class User {
             try {
                 jsonArray = new JSONArray(result);
                 JSONObject LoginStatus = jsonArray.getJSONObject(0);
-                usr.LoginStatus = Boolean.valueOf(LoginStatus.getString("status"));
-                Log.e("LoginStatus", String.valueOf(usr.LoginStatus));
-                if(usr.LoginStatus){
+                user.LoginStatus = LoginStatus.getBoolean("status");
+                Log.e("LoginStatus", LoginStatus.getString("status"));
+                if(user.LoginStatus){
                     JSONObject Data = jsonArray.getJSONObject(0);
                     JSONObject _Data = Data.getJSONObject("data");
-                    usr.address = _Data.getString("address");
-                    usr.id = _Data.getString("id");
-                    usr.password = _Data.getString("password");
-                    usr.username = _Data.getString("username");
-                    usr.phone = _Data.getString("phone");
-                    usr.sex = _Data.getString("sex");
+                    user.address = _Data.getString("address");
+                    user.id = _Data.getInt("id");
+                    user.password = _Data.getString("password");
+                    user.username = _Data.getString("username");
+                    user.phone = _Data.getString("phone");
+                    user.sex = _Data.getString("sex");
+                    usr = user;
                 }
-//                Log.e("address", this.address);
+
             } catch (JSONException e1) {
                 e1.printStackTrace();
             }
@@ -58,7 +56,7 @@ public class User {
         } catch(Exception e) {
             Log.e("error_log_tag", e.toString());
         }
-        return usr;
+        return user;
     }
 
     protected static Boolean register (String username, String password,String address, String phone,String sex){
@@ -149,7 +147,7 @@ public class User {
                 JSONObject Data = jsonArray.getJSONObject(0);
                 JSONObject _Data = Data.getJSONObject("data");
                 usr.address = _Data.getString("address");
-                usr.id = _Data.getString("id");
+                usr.id = _Data.getInt("id");
                 usr.username = _Data.getString("username");
                 usr.phone = _Data.getString("phone");
                 usr.sex = _Data.getString("sex");
