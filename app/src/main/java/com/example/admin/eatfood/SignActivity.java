@@ -55,16 +55,16 @@ public class SignActivity extends AppCompatActivity {
         int selectedId = r.getCheckedRadioButtonId();
         RadioButton radioButton = (RadioButton) findViewById(selectedId);
         String sex = radioButton.getText().toString();
-        if(sex == "男"){
+        if(sex.equals("男")){
             sex = "0";
         }else{
             sex = "1";
         }
-        User usr = new User(Username, password, address, phone, sex);
-        if(usr.RegisterStatus){
+        Boolean reg = User.register(Username, password, address, phone, sex);
+        if(reg){
             //註冊完成
         }else{
-            Log.e("RegisterError", String.valueOf(usr.RegisterError));
+            Log.e("RegisterError", "帳號有人使用");
         }
     }
 }

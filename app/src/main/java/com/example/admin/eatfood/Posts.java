@@ -13,6 +13,8 @@ import org.json.JSONObject;
 public class Posts {
 
     protected int id;
+    protected int cate_id;
+    protected String cate_name;
     protected String restaurant_name;
     protected String restaurant_branch;
     protected String meeting_date;
@@ -20,6 +22,8 @@ public class Posts {
     protected int people_limit;
     protected String content;
     protected int owner_id;
+    protected User owner;
+    protected Boolean reqstatus; /* 是否提出申請 */
 
     protected static Posts getPost(int id){
         Posts pst = new Posts();
@@ -35,12 +39,15 @@ public class Posts {
             JSONObject _Data = Data.getJSONObject("data");
             pst.restaurant_name = _Data.getString("restaurant_name");
             pst.id = Integer.parseInt(_Data.getString("id"));
+            pst.cate_id = _Data.getInt("cate_id");
+            pst.cate_name = _Data.getString("category_name");
             pst.restaurant_branch = _Data.getString("restaurant_branch");
             pst.meeting_date = _Data.getString("meeting_date");
             pst.sex_limit = Integer.parseInt(_Data.getString("sex_limit"));
             pst.people_limit = Integer.parseInt(_Data.getString("people_limit"));
             pst.content = _Data.getString("content");
             pst.owner_id = Integer.parseInt(_Data.getString("owner_id"));
+            pst.owner = User.getUsr(pst.owner_id);
         } catch(Exception e) {
             Log.e("error_log_tag", e.toString());
         }
@@ -110,5 +117,56 @@ public class Posts {
         } catch(Exception e) {
             Log.e("error_log_tag", e.toString());
         }
+    }
+
+    public void delete() {
+        Log.e("delete", String.valueOf(this.id));
+        try {
+            String result = connectDB.db("id="+this.id+"&type=delete_post");
+            Log.e("result", result);
+            JSONArray jsonArray = null;
+            try {
+                jsonArray = new JSONArray(result);
+                JSONObject Status = jsonArray.getJSONObject(0);
+                Boolean UpdateStatus = Boolean.valueOf(Status.getString("status"));
+                Log.e("DeleteStatus", String.valueOf(UpdateStatus));
+            } catch (JSONException e1) {
+                e1.printStackTrace();
+            }
+        } catch(Exception e) {
+            Log.e("error_log_tag", e.toString());
+        }
+    }
+
+    public static Posts[] all() {
+        Posts pst[] = new Posts[0];
+        try {
+            String result = connectDB.db("type=all_post");
+            Log.e("result", result);
+            JSONArray jsonArray = null;
+            try {
+                jsonArray = new JSONArray(result);
+                pst = new Posts[jsonArray.length()];
+                for(int i = 0; i < jsonArray.length(); i++) {
+                    JSONObject jsonData = jsonArray.getJSONObject(i);
+                    pst[i].id = jsonData.getInt("id");
+                    pst[i].cate_id = jsonData.getInt("cate_id");
+                    pst[i].cate_name = jsonData.getString("category_name");
+                    pst[i].restaurant_name = jsonData.getString("restaurant_name");
+                    pst[i].restaurant_branch = jsonData.getString("restaurant_branch");
+                    pst[i].meeting_date = jsonData.getString("meeting_date");
+                    pst[i].sex_limit = jsonData.getInt("sex_limit");
+                    pst[i].content = jsonData.getString("content");
+                    pst[i].owner_id = jsonData.getInt("owner_id");
+                    pst[i].owner = User.getUsr(pst[i].owner_id);
+                    pst[i].reqstatus = Orders.check(pst[i]);
+                }
+            } catch (JSONException e1) {
+                e1.printStackTrace();
+            }
+        } catch(Exception e) {
+            Log.e("error_log_tag", e.toString());
+        }
+        return pst;
     }
 }
