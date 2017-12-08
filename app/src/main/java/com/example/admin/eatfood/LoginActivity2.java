@@ -22,6 +22,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 
+import java.util.Arrays;
+
 public class LoginActivity2 extends AppCompatActivity {
     FirebaseAuth auth;
     FirebaseAuth.AuthStateListener authListener;
@@ -50,7 +52,6 @@ public class LoginActivity2 extends AppCompatActivity {
 
     }
     public void login(View v){
-
 
         final String username = ((EditText)findViewById(R.id.Username)).getText().toString();
         final String password = ((EditText)findViewById(R.id.password)).getText().toString();
