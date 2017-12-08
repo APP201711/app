@@ -101,7 +101,6 @@ public class Posts {
     }
 
     public void update() {
-        Log.e("update", this.content);
         try {
             String result = connectDB.db("id="+this.id+"&restaurant_name="+this.restaurant_name+"&restaurant_branch="+this.restaurant_branch+"&meeting_date="+this.meeting_date+"&sex_limit="+this.sex_limit+"&people_limit="+this.people_limit+"&content="+this.content+"&type=update_post");
             Log.e("result", result);
