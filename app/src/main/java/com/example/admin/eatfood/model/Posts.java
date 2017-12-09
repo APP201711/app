@@ -1,4 +1,4 @@
-package com.example.admin.eatfood;
+package com.example.admin.eatfood.model;
 
 import android.util.Log;
 
@@ -12,23 +12,23 @@ import org.json.JSONObject;
 
 public class Posts {
 
-    protected int id;
-    protected int cate_id;
-    protected String cate_name;
-    protected String restaurant_name;
-    protected String restaurant_branch;
-    protected String restaurant_address;
-    protected String meeting_date;
-    protected int sex_limit;
-    protected int people_limit;
-    protected String content;
-    protected int owner_id;
-    protected User owner;
-    protected Boolean reqstatus; /* 是否提出申請 */
+    public int id;
+    public int cate_id;
+    public String cate_name;
+    public String restaurant_name;
+    public String restaurant_branch;
+    public String restaurant_address;
+    public String meeting_date;
+    public int sex_limit;
+    public int people_limit;
+    public String content;
+    public int owner_id;
+    public User owner;
+    public Boolean reqstatus; /* 是否提出申請 */
 
-    protected Posts(){}
+    public Posts(){}
 
-    protected static Posts getPost(int id){
+    public static Posts getPost(int id){
         Posts pst = new Posts();
         try {
             String result = connectDB.db("id="+id+"&type=get_post");
@@ -59,7 +59,7 @@ public class Posts {
     }
 
 
-    protected boolean create(){
+    public boolean create(){
         Boolean CreateStatus = false;
         try {
             String result = connectDB.db("cate_id="+this.cate_id+"&restaurant_name="+this.restaurant_name+"&restaurant_branch="+this.restaurant_branch+"&restaurant_address="+this.restaurant_address+"&meeting_date="+this.meeting_date+"&sex_limit="+this.sex_limit+"&people_limit="+this.people_limit+"&content="+this.content+"&owner_id="+this.owner_id+"&type=create_post");
@@ -80,7 +80,7 @@ public class Posts {
         return CreateStatus;
     }
 
-    protected static String[] getCate(){
+    public static String[] getCate(){
         String[] cate = new String[0];
         try {
             String result = connectDB.db("type=get_cate");

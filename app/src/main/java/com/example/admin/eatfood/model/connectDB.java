@@ -1,4 +1,4 @@
-package com.example.admin.eatfood;
+package com.example.admin.eatfood.model;
 
 import android.os.StrictMode;
 

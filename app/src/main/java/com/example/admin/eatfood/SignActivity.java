@@ -2,9 +2,6 @@ package com.example.admin.eatfood;
 
 
 import android.os.Bundle;
-import android.os.StrictMode;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -12,20 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TableRow;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.example.admin.eatfood.model.User;
 
 public class SignActivity extends AppCompatActivity {
 
@@ -62,8 +48,9 @@ public class SignActivity extends AppCompatActivity {
         }
         Boolean reg = User.register(Username, password, address, phone, sex);
         if(reg){
-            //註冊完成
+            finish();
         }else{
+            Toast.makeText(SignActivity.this,"帳號有人使用", Toast.LENGTH_SHORT).show();
             Log.e("RegisterError", "帳號有人使用");
         }
     }

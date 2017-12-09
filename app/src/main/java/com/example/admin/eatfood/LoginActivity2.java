@@ -7,7 +7,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import com.google.firebase.auth.FirebaseAuth;
+import android.widget.Toast;
+
+import com.example.admin.eatfood.model.User;
 
 
 public class LoginActivity2 extends AppCompatActivity {
@@ -44,9 +46,12 @@ public class LoginActivity2 extends AppCompatActivity {
         User usr = User.login(username,password);
         Log.e("LoginStatus", String.valueOf(usr.LoginStatus));
         if(usr.LoginStatus){
-            Intent intent = new Intent();
-            intent.setClass(LoginActivity2.this, PostActivity.class);
-            startActivity(intent);
+//            Intent returnIntent = new Intent();
+//            returnIntent.putExtra("extras", "finsh"); //This is just an example extra.
+//            setResult(RESULT_OK, returnIntent); //This is the important part.
+            finish();
+        }else{
+            Toast.makeText(LoginActivity2.this,"登入失敗,請重新確認", Toast.LENGTH_SHORT).show();
         }
 
     }

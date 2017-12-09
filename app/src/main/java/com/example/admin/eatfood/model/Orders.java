@@ -1,4 +1,4 @@
-package com.example.admin.eatfood;
+package com.example.admin.eatfood.model;
 
 import android.util.Log;
 
@@ -11,15 +11,15 @@ import org.json.JSONObject;
  */
 
 public class Orders {
-    protected int order_id;
-    protected int post_id;
-    protected Posts post;
-    protected User user;
-    protected int user_id;
-    protected int status;
-    protected int user_check;
+    public int order_id;
+    public int post_id;
+    public Posts post;
+    public User user;
+    public int user_id;
+    public int status;
+    public int user_check;
 
-    protected static boolean request(Posts pst){   // 新增要求
+    public static boolean request(Posts pst){   // 新增要求
         User usr = User.getUsr();
         boolean status = false;
         if(Orders.check(pst)){
@@ -44,7 +44,7 @@ public class Orders {
     }
 
 
-    protected Boolean response(int res){   // 回應要求  1接受 2拒絕
+    public Boolean response(int res){   // 回應要求  1接受 2拒絕
         Boolean status = false;
             try {
                 String result = connectDB.db("order_id="+this.order_id+"&response="+res+"&type=res_order");
@@ -65,7 +65,7 @@ public class Orders {
     }
 
 
-    protected static boolean check(Posts pst){   //查看是否重複提出申請
+    public static boolean check(Posts pst){   //查看是否重複提出申請
         User usr = User.getUsr();
         boolean chk = false;
         try {
@@ -87,7 +87,7 @@ public class Orders {
         return chk;
     }
 
-    protected static Orders[] orders_for_posts(){
+    public static Orders[] orders_for_posts(){
         Orders ord[] = new Orders[0];
         User usr = User.getUsr();
         try {
@@ -116,7 +116,7 @@ public class Orders {
         return ord;
     }
 
-    protected static Orders[] orders_for_users(){
+    public static Orders[] orders_for_users(){
         Orders ord[] = new Orders[0];
         User usr = User.getUsr();
         try {

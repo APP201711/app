@@ -1,7 +1,8 @@
-package com.example.admin.eatfood;
+package com.example.admin.eatfood.model;
 
 
 import android.util.Log;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -13,7 +14,7 @@ import org.json.JSONObject;
 
 public class User {
 
-    public static User usr;
+    public static User usr = new User();
 
     public Boolean LoginStatus = false;
     public String address;
@@ -23,10 +24,11 @@ public class User {
     public String phone;
     public String sex;
 
+    public User(){
 
-    protected User(){}
+    }
 
-    protected static User login(String username, String password){
+    public static User login(String username, String password){
         User user = new User();
         try {
             String result = connectDB.db("username="+username+"&password="+password+"&type=login");
@@ -59,7 +61,7 @@ public class User {
         return user;
     }
 
-    protected static Boolean register (String username, String password,String address, String phone,String sex){
+    public static Boolean register (String username, String password,String address, String phone,String sex){
         Boolean RegisterStatus = false;
         String RegisterError = "";
         if(check_usrname(username)){
@@ -85,7 +87,7 @@ public class User {
         return RegisterStatus;
     }
 
-    protected static boolean check_usrname(String username){
+    public static boolean check_usrname(String username){
         boolean chk = false;
         try {
             String result = connectDB.db("username="+username+"&type=check_usrname");
@@ -106,7 +108,7 @@ public class User {
         return chk;
     }
 
-    protected boolean update(){
+    public boolean update(){
         Boolean UpdateStatus = false;
         Log.e("first address", this.address);
         try {
@@ -131,11 +133,11 @@ public class User {
         return UpdateStatus;
     }
 
-    protected static User getUsr(){
+    public static User getUsr(){
         return usr;
     }
 
-    protected static User getUsr(int id){
+    public static User getUsr(int id){
         User usr = new User();
         try {
             String result = connectDB.db("id="+id+"&type=get_user");

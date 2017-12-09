@@ -1,50 +1,150 @@
 package com.example.admin.eatfood;
-
-
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.v4.widget.TextViewCompat;
+import android.util.Log;
+import android.view.View;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+import com.example.admin.eatfood.fragment.Home_Fragment;
+import com.example.admin.eatfood.fragment.history_Fragment;
+import com.example.admin.eatfood.fragment.personal_Fragment;
+import com.example.admin.eatfood.fragment.post_Fragment;
+import com.example.admin.eatfood.model.User;
 
-    private TextView mTextMessage;
+public class MainActivity extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener {
 
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener() {
-
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            switch (item.getItemId()) {
-                case R.id.navigation_home:
-                    mTextMessage.setText(R.string.title_home);
-
-                    return true;
-                case R.id.navigation_dashboard:
-                    mTextMessage.setText(R.string.title_dashboard);
-                    return true;
-                case R.id.navigation_notifications:
-                    mTextMessage.setText(R.string.title_notifications);
-                    return true;
-                case R.id.navigation_person:
-                    mTextMessage.setText(R.string.title_person);
-                    return true;
-            }
-            return false;
-        }
-    };
-
-
+    User usr = User.getUsr();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        /*   檢查 登入 */
+        if(!usr.LoginStatus){
+            Log.e("LoginStatus", String.valueOf(usr.LoginStatus));
+            Intent intent = new Intent();
+            intent.setClass(MainActivity.this, LoginActivity2.class);
+            startActivity(intent);
+        }
+        /*                  */
 
-        mTextMessage = (TextView) findViewById(R.id.message);
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
+        android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.contendor,new Home_Fragment()).commit();
+
+
+
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Toast.makeText(this, "登入成功", Toast.LENGTH_SHORT).show();
+        if (resultCode == RESULT_OK) {
+                /*   修改 側攔 使用者  */
+                TextView username = (TextView) findViewById(R.id.tab_username);
+                TextView userphone = (TextView) findViewById(R.id.tab_userphone);
+                username.setText(usr.username);
+                userphone.setText(usr.phone);
+                /*  修改 側攔 使用者 END*/
+
+        }
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
+
+
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
+
+        android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
+
+        if (id == R.id.nav_home) {
+            fragmentManager.beginTransaction().replace(R.id.contendor,new Home_Fragment()).commit();
+            // Handle the camera action
+        } else if (id == R.id.nav_post) {
+            fragmentManager.beginTransaction().replace(R.id.contendor,new post_Fragment()).commit();
+
+        } else if (id == R.id.nav_history) {
+            fragmentManager.beginTransaction().replace(R.id.contendor,new history_Fragment()).commit();
+
+        } else if (id == R.id.nav_personal) {
+            fragmentManager.beginTransaction().replace(R.id.contendor,new personal_Fragment()).commit();
+
+        }
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
 }
+

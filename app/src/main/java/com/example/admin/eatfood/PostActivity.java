@@ -1,7 +1,6 @@
 package com.example.admin.eatfood;
 
 import android.app.DatePickerDialog;
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,9 +12,10 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.example.admin.eatfood.model.Posts;
+import com.example.admin.eatfood.model.User;
+
 import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
 
 public class PostActivity extends AppCompatActivity {
     private Button btn,submit;
@@ -29,7 +29,6 @@ public class PostActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post);
-
         String[] cates = Posts.getCate();
         spinerCate = (Spinner) findViewById(R.id.spinner_cate);
         ArrayAdapter<String> _cates = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, cates);
