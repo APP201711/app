@@ -47,9 +47,7 @@ public class Home_Fragment extends Fragment {
 //            hashMap.put("title" , pst[i].owner.username);
             hashMap.put("title" , pst[i].restaurant_name+"  "+pst[i].restaurant_branch);
             hashMap.put("text" , pst[i].meeting_date);
-//            hashMap.put("address" , pst[i].restaurant_address);
-//            hashMap.put("date" , pst[i].meeting_date);
-//            hashMap.put("number" , String.valueOf(pst[i].people_limit));
+
             //把title , text存入HashMap之中
             list.add(hashMap);
             //把HashMap存入list之中

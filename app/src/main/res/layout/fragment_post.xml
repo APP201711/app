@@ -18,6 +18,11 @@
         android:orientation="vertical">
 
 
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="match_parent"
+            android:layout_height="54dp" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -32,7 +37,7 @@
                 android:layout_width="85dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center"
+                android:gravity="center_vertical"
                 android:text="@string/restaurant_category" />
 
             <Spinner
@@ -48,7 +53,6 @@
             android:layout_marginBottom="5dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:layout_marginTop="5dp"
             android:orientation="horizontal">
 
             <TextView
@@ -56,7 +60,7 @@
                 android:layout_width="20dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center"
+                android:gravity="center_vertical"
                 android:text="@string/restaurant_name" />
 
             <EditText
@@ -83,7 +87,7 @@
                 android:layout_width="38dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center"
+                android:gravity="center_vertical"
                 android:text="@string/restaurant_branch" />
 
             <EditText
@@ -110,7 +114,7 @@
                 android:layout_width="58dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center"
+                android:gravity="center_vertical"
                 android:text="@string/address" />
 
             <EditText
@@ -137,7 +141,7 @@
                 android:layout_width="58dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center"
+                android:gravity="center_vertical"
                 android:text="@string/eat_date" />
 
             <Button
@@ -163,7 +167,7 @@
                 android:layout_width="112dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center"
+                android:gravity="center_vertical"
                 android:text="@string/eat_sex" />
 
             <Spinner
@@ -186,7 +190,7 @@
                 android:layout_width="113dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center"
+                android:gravity="center_vertical"
                 android:text="@string/eat_number" />
 
             <EditText
@@ -216,8 +220,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="2dp">
+            android:layout_marginRight="20dp">
 
             <android.support.design.widget.TextInputEditText
                 android:id="@+id/content"
