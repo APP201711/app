@@ -44,8 +44,12 @@ public class Home_Fragment extends Fragment {
 
         for(int i = 0 ; i < pst.length ; i++){
             HashMap<String , String> hashMap = new HashMap<>();
-            hashMap.put("title" , pst[i].restaurant_name);
-            hashMap.put("text" , pst[i].owner.username);
+//            hashMap.put("title" , pst[i].owner.username);
+            hashMap.put("title" , pst[i].restaurant_name+"  "+pst[i].restaurant_branch);
+            hashMap.put("text" , pst[i].meeting_date);
+//            hashMap.put("address" , pst[i].restaurant_address);
+//            hashMap.put("date" , pst[i].meeting_date);
+//            hashMap.put("number" , String.valueOf(pst[i].people_limit));
             //把title , text存入HashMap之中
             list.add(hashMap);
             //把HashMap存入list之中
@@ -55,7 +59,7 @@ public class Home_Fragment extends Fragment {
                 getActivity(),
                 list,
                 android.R.layout.simple_list_item_2 ,
-                new String[]{"title" , "text"} ,
+                new String[]{"title" , "text","store","address","date","number"} ,
                 new int[]{android.R.id.text1 , android.R.id.text2});
         // 5個參數 : context , List , layout , key1 & key2 , text1 & text2
 

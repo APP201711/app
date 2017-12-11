@@ -2,7 +2,8 @@
     <string name="app_name">EatFood</string>
 
     <!-- Strings related to login -->
-    <string name="prompt_email">Email</string>
+    <!--<string name="prompt_email">Email</string>-->
+    <string name="prompt_account">Account</string>
     <string name="prompt_password">Password</string>
     <string name="action_sign_in">Sign in</string>
     <string name="action_sign_in_short">Sign in</string>
@@ -32,7 +33,6 @@
     <string name="eat_number">人數限制</string>
     <string name="description">說明</string>
     <string name="write_description">說明...</string>
-    <string name="preview_post">預覽</string>
     <string name="check_post">確認送出</string>
     <!--導覽-->
     <string name="title_home">主頁面</string>

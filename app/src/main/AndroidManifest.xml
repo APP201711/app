@@ -25,12 +25,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".SignActivity" />
-        <activity android:name=".PostActivity" />
+        <activity android:name=".PostActivity"/>
         <activity android:name=".LoginActivity2" />
-        <activity
-            android:name=".TabActivity"
-            android:label="@string/title_activity_tab"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <!--<activity-->
+            <!--android:name=".TabActivity"-->
+            <!--android:label="@string/title_activity_tab"-->
+            <!--android:theme="@style/AppTheme.NoActionBar"></activity>-->
     </application>
 
 </manifest>

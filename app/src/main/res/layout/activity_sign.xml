@@ -38,7 +38,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
-                    android:text="@string/prompt_email" />
+                    android:text="@string/account" />
 
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="247dp"
@@ -49,7 +49,7 @@
                         android:id="@+id/Username"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="輸入Email"
+                        android:hint="輸入帳號"
                         android:inputType="textEmailAddress"
                         android:textSize="14sp" />
                 </android.support.design.widget.TextInputLayout>
