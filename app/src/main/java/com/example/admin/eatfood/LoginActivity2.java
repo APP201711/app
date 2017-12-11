@@ -46,9 +46,9 @@ public class LoginActivity2 extends AppCompatActivity {
         User usr = User.login(username,password);
         Log.e("LoginStatus", String.valueOf(usr.LoginStatus));
         if(usr.LoginStatus){
-//            Intent returnIntent = new Intent();
-//            returnIntent.putExtra("extras", "finsh"); //This is just an example extra.
-//            setResult(RESULT_OK, returnIntent); //This is the important part.
+            Intent returnIntent = new Intent();
+            returnIntent.putExtra("extras", "finsh"); //This is just an example extra.
+            setResult(RESULT_OK, returnIntent); //This is the important part.
             finish();
         }else{
             Toast.makeText(LoginActivity2.this,"登入失敗,請重新確認", Toast.LENGTH_SHORT).show();

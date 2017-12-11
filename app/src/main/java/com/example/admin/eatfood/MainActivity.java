@@ -1,9 +1,9 @@
 package com.example.admin.eatfood;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v4.widget.TextViewCompat;
 import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     User usr = User.getUsr();
+    NavigationView navigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,9 +35,9 @@ public class MainActivity extends AppCompatActivity
         /*   檢查 登入 */
         if(!usr.LoginStatus){
             Log.e("LoginStatus", String.valueOf(usr.LoginStatus));
-            Intent intent = new Intent();
-            intent.setClass(MainActivity.this, LoginActivity2.class);
-            startActivity(intent);
+            Intent intent = new Intent(MainActivity.this, LoginActivity2.class);
+            startActivityForResult(intent,1);
+
         }
         /*                  */
 
@@ -58,7 +59,7 @@ public class MainActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
@@ -70,13 +71,14 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        Toast.makeText(this, "登入成功", Toast.LENGTH_SHORT).show();
+        usr = User.getUsr();
+
         if (resultCode == RESULT_OK) {
                 /*   修改 側攔 使用者  */
-                TextView username = (TextView) findViewById(R.id.tab_username);
-                TextView userphone = (TextView) findViewById(R.id.tab_userphone);
-                username.setText(usr.username);
-                userphone.setText(usr.phone);
+
+            View header_main =  navigationView.inflateHeaderView(R.layout.nav_header_main);
+            TextView user = (TextView) header_main.findViewById(R.id.tab_username);
+            user.setText("aaa");
                 /*  修改 側攔 使用者 END*/
 
         }

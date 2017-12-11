@@ -42,7 +42,7 @@ public class Posts {
             JSONObject _Data = Data.getJSONObject("data");
             pst.restaurant_name = _Data.getString("restaurant_name");
             pst.id = Integer.parseInt(_Data.getString("id"));
-            pst.cate_id = _Data.getInt("cate_id");
+            pst.cate_id = Integer.parseInt(_Data.getString("cate_id"));
             pst.cate_name = _Data.getString("category_name");
             pst.restaurant_branch = _Data.getString("restaurant_branch");
             pst.restaurant_address = _Data.getString("restaurant_address");
@@ -142,7 +142,7 @@ public class Posts {
     }
 
     public static Posts[] all() {
-        Posts pst[] = new Posts[0];
+        Posts pst[] = new Posts[5];
         try {
             String result = connectDB.db("type=all_post");
             Log.e("result", result);
@@ -152,16 +152,17 @@ public class Posts {
                 pst = new Posts[jsonArray.length()];
                 for(int i = 0; i < jsonArray.length(); i++) {
                     JSONObject jsonData = jsonArray.getJSONObject(i);
-                    pst[i].id = jsonData.getInt("id");
-                    pst[i].cate_id = jsonData.getInt("cate_id");
+                    pst[i] = new Posts();
+                    pst[i].id = Integer.parseInt(jsonData.getString("id"));
+                    pst[i].cate_id = Integer.parseInt(jsonData.getString("cate_id"));
                     pst[i].cate_name = jsonData.getString("category_name");
                     pst[i].restaurant_name = jsonData.getString("restaurant_name");
                     pst[i].restaurant_branch = jsonData.getString("restaurant_branch");
                     pst[i].restaurant_address = jsonData.getString("restaurant_address");
                     pst[i].meeting_date = jsonData.getString("meeting_date");
-                    pst[i].sex_limit = jsonData.getInt("sex_limit");
+                    pst[i].sex_limit = Integer.parseInt(jsonData.getString("sex_limit"));
                     pst[i].content = jsonData.getString("content");
-                    pst[i].owner_id = jsonData.getInt("owner_id");
+                    pst[i].owner_id = Integer.parseInt(jsonData.getString("owner_id"));
                     pst[i].owner = User.getUsr(pst[i].owner_id);
                     pst[i].reqstatus = Orders.check(pst[i]);
                 }
