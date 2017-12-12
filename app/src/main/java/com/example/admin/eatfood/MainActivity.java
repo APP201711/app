@@ -33,12 +33,12 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         /*   檢查 登入 */
-        if(!usr.LoginStatus){
-            Log.e("LoginStatus", String.valueOf(usr.LoginStatus));
-            Intent intent = new Intent(MainActivity.this, LoginActivity2.class);
-            startActivityForResult(intent,1);
-
-        }
+//        if(!usr.LoginStatus){
+//            Log.e("LoginStatus", String.valueOf(usr.LoginStatus));
+//            Intent intent = new Intent(MainActivity.this, LoginActivity2.class);
+//            startActivityForResult(intent,1);
+//
+//        }
         /*                  */
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
