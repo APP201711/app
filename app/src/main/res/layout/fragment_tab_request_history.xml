@@ -5,11 +5,35 @@
     tools:context="com.example.admin.eatfood123.fragment.Home_Fragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center_vertical|center_horizontal"
-        android:text="request_history"
-        android:textSize="30sp" />
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="match_parent"
+            android:layout_height="104dp"
+            android:text="" />
+
+        <!--<ListView-->
+            <!--android:id="@+id/my_view"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="123dp"-->
+            <!--android:visibility="invisible"></ListView>-->
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rcv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom|end">
+
+        </RelativeLayout>
+    </LinearLayout>
 
 </FrameLayout>
