@@ -2,37 +2,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.admin.eatfood123.fragment.Home_Fragment">
+    tools:context="com.example.admin.eatfood.fragment.Home_Fragment">
 
     <!-- TODO: Update blank fragment layout -->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView10"
+            android:id="@+id/textView"
             android:layout_width="match_parent"
-            android:layout_height="107dp"
-            android:text="" />
+            android:layout_height="158dp" />
 
         <ListView
-            android:id="@+id/my_view"
+            android:id="@+id/post_list"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="invisible"></ListView>
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/rcv"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scrollbars="vertical" />
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="bottom|end">
-
-        </RelativeLayout>
+            android:layout_height="447dp" />
     </LinearLayout>
 </FrameLayout>

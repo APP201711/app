@@ -57,8 +57,11 @@ public class personal_Fragment extends Fragment {
             usr.phone = phone.getText().toString();
             usr.address = address.getText().toString();
             usr.update();
+
             FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
             fragmentManager.beginTransaction().replace(R.id.contendor,new Home_Fragment()).commit();
+            Toast.makeText(getActivity(),
+                    "修改完成", Toast.LENGTH_LONG).show();
         }else{
             Toast.makeText(getActivity(),
                     "密碼錯誤", Toast.LENGTH_LONG).show();

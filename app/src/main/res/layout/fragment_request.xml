@@ -217,7 +217,7 @@
                 android:text="剩餘人數" />
 
             <TextView
-                android:id="@+id/textView18"
+                android:id="@+id/last_people"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -261,7 +261,8 @@
             android:background="@color/colorPrimary"
             android:text="Request"
             android:textAlignment="center"
-            android:textColor="@color/colorText" />
+            android:textColor="@color/colorText"
+            android:visibility="visible" />
 
 
     </LinearLayout>
