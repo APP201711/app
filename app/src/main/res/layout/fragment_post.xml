@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.admin.eatfood123.fragment.Home_Fragment">
+    tools:context="com.example.admin.eatfood.fragment.Home_Fragment">
 
     <!-- TODO: Update blank fragment layout -->
     <!--<TextView-->
@@ -194,7 +194,7 @@
                 android:text="@string/eat_number" />
 
             <EditText
-                android:id="@+id/	people_limit"
+                android:id="@+id/people_limit__"
                 android:layout_width="315dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

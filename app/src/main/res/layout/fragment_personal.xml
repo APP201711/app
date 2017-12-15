@@ -52,6 +52,7 @@
                         android:text="@string/account" />
 
                     <TextView
+                        android:id="@+id/username"
                         android:layout_width="241dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -96,12 +97,12 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/textView2"
+                        android:id="@+id/new_password"
                         android:layout_width="66dp"
                         android:layout_height="match_parent"
                         android:layout_weight="0"
                         android:gravity="center_vertical"
-                        android:text="@string/check_pwd" />
+                        android:text="新密碼" />
 
                     <android.support.design.widget.TextInputLayout
                         android:layout_width="276dp"
@@ -109,10 +110,10 @@
                         android:layout_weight="0">
 
                         <android.support.design.widget.TextInputEditText
-                            android:id="@+id/chk_password"
+                            android:id="@+id/newpassword"
                             android:layout_width="287dp"
                             android:layout_height="wrap_content"
-                            android:hint="@string/check_pwd"
+                            android:hint="若不更換密碼,請留空白"
                             android:inputType="textPassword"
                             android:textSize="14sp" />
                     </android.support.design.widget.TextInputLayout>
@@ -172,25 +173,6 @@
                         android:layout_weight="1"
                         android:orientation="horizontal">
 
-                        <RadioButton
-                            android:id="@+id/radioButton2"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="20dp"
-                            android:layout_weight="1"
-                            android:autoText="true"
-                            android:checked="true"
-                            android:paddingLeft="16px"
-                            android:text="@string/male" />
-
-                        <RadioButton
-                            android:id="@+id/radioButton_female"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp"
-                            android:layout_weight="1"
-                            android:paddingLeft="16px"
-                            android:text="@string/female" />
                     </RadioGroup>
 
                 </LinearLayout>
@@ -229,7 +211,7 @@
                 </LinearLayout>
 
                 <Button
-                    android:id="@+id/btn_register"
+                    android:id="@+id/btnupdate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
