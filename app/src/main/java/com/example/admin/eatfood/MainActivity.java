@@ -78,7 +78,8 @@ public class MainActivity extends AppCompatActivity
 
             View header_main =  navigationView.inflateHeaderView(R.layout.nav_header_main);
             TextView user = (TextView) header_main.findViewById(R.id.tab_username);
-            user.setText("aaa");
+            user.setText("user");
+
                 /*  修改 側攔 使用者 END*/
 
         }

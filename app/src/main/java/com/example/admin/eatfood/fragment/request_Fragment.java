@@ -39,7 +39,7 @@ public class request_Fragment extends Fragment {
         TextView date = (TextView) requestView.findViewById(R.id.date);
         TextView sex_limit = (TextView) requestView.findViewById(R.id.sex_limit);
         TextView people_limit = (TextView) requestView.findViewById(R.id.people_limit_);
-        TextView last_people = (TextView) requestView.findViewById(R.id.last_people);
+        TextView last_people = (TextView) requestView.findViewById(R.id.last_people) ;
         TextView content = (TextView) requestView.findViewById(R.id.content);
         request = (Button) requestView.findViewById(R.id.btn_request);
 
