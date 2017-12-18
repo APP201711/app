@@ -74,7 +74,7 @@ public class Tab_post_histroy_Fragment extends Fragment {
                 Bundle bnd = new Bundle();
                 bnd.putInt("post_id",ords[_id].post_id) ;
                 bnd.putInt("usr_id",ords[_id].user_id) ;
-                bnd.putInt("ord_id",_id) ;
+                bnd.putInt("ord_id",ords[_id].order_id) ;
                 mFrag.setArguments(bnd);
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 fragmentManager.beginTransaction().replace(R.id.contendor,mFrag).commit();

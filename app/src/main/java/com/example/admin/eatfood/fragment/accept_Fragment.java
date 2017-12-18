@@ -4,6 +4,7 @@ package com.example.admin.eatfood.fragment;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,6 +50,7 @@ public class accept_Fragment extends Fragment {
         btn_a.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+//                Log.e("ord_id", String.valueOf(ord_id));
                 Orders.response(ord_id,1);
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 fragmentManager.beginTransaction().replace(R.id.contendor,new history_Fragment()).commit();
@@ -56,7 +58,7 @@ public class accept_Fragment extends Fragment {
         });
 
         Button btn_b = (Button) accept.findViewById(R.id.btn_reject);
-        btn_a.setOnClickListener(new View.OnClickListener(){
+        btn_b.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 Orders.response(ord_id,2);
