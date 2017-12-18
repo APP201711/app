@@ -4,13 +4,13 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://D:\專題\新增資料夾\app.iml" filepath="D:\專題\新增資料夾\app.iml" />
-      <module fileurl="file://C:\Users\USER\Documents\app11\app\app.iml" filepath="C:\Users\USER\Documents\app11\app\app.iml" />
-      <module fileurl="file://C:\Users\ADMIN\Documents\app11\app.iml" filepath="C:\Users\ADMIN\Documents\app11\app.iml" />
       <module fileurl="file://D:\project\app\app\app.iml" filepath="D:\project\app\app\app.iml" />
-      <module fileurl="file://C:\Users\ADMIN\Documents\app11\app\app-app.iml" filepath="C:\Users\ADMIN\Documents\app11\app\app-app.iml" />
+      <module fileurl="file://C:\Users\ADMIN\Documents\app11\app.iml" filepath="C:\Users\ADMIN\Documents\app11\app.iml" />
+      <module fileurl="file://C:\Users\USER\Documents\app11\app\app.iml" filepath="C:\Users\USER\Documents\app11\app\app.iml" />
       <module fileurl="file://D:\專題\新增資料夾\app\app-app.iml" filepath="D:\專題\新增資料夾\app\app-app.iml" />
-      <module fileurl="file://C:\Users\USER\Documents\app11\app11.iml" filepath="C:\Users\USER\Documents\app11\app11.iml" />
+      <module fileurl="file://C:\Users\ADMIN\Documents\app11\app\app-app.iml" filepath="C:\Users\ADMIN\Documents\app11\app\app-app.iml" />
       <module fileurl="file://D:\project\app\app11.iml" filepath="D:\project\app\app11.iml" />
+      <module fileurl="file://C:\Users\USER\Documents\app11\app11.iml" filepath="C:\Users\USER\Documents\app11\app11.iml" />
       <module fileurl="file://$PROJECT_DIR$/新增資料夾.iml" filepath="$PROJECT_DIR$/新增資料夾.iml" />
     </modules>
   </component>

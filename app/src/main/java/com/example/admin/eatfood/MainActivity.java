@@ -71,14 +71,12 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        usr = User.getUsr();
-
         if (resultCode == RESULT_OK) {
                 /*   修改 側攔 使用者  */
-
-            View header_main =  navigationView.inflateHeaderView(R.layout.nav_header_main);
+            usr = User.getUsr();
+            View header_main =  navigationView.getHeaderView(0);
             TextView user = (TextView) header_main.findViewById(R.id.tab_username);
-            user.setText("aaa");
+            user.setText(usr.username);
                 /*  修改 側攔 使用者 END*/
 
         }

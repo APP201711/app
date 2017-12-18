@@ -48,7 +48,7 @@ public class Home_Fragment extends Fragment {
 
         List<HashMap<String , String>> list = new ArrayList<>();
         //使用List存入HashMap，用來顯示ListView上面的文字。
-
+        Log.e("lenght", String.valueOf(pst.length));
         for(int i = 0 ; i < pst.length ; i++){
             HashMap<String , String> hashMap = new HashMap<>();
 //            hashMap.put("title" , pst[i].owner.username);
