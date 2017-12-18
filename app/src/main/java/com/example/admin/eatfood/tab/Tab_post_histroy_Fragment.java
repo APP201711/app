@@ -17,6 +17,7 @@ import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import com.example.admin.eatfood.R;
+import com.example.admin.eatfood.fragment.accept_Fragment;
 import com.example.admin.eatfood.fragment.request_Fragment;
 import com.example.admin.eatfood.model.Orders;
 
@@ -69,32 +70,17 @@ public class Tab_post_histroy_Fragment extends Fragment {
                 ListView listView = (ListView) parent;
                 HashMap<String , String> data = (HashMap<String , String>) listView.getItemAtPosition(position);
                 final int _id = Integer.parseInt(data.get("id"));
-                if(ords[_id].status == 0){
-                    new AlertDialog.Builder(getActivity())
-                            .setTitle("回覆")
-                            .setMessage("請選擇回覆內容,一但回覆無法將修改")
-                            .setPositiveButton("接受",
-                                    new DialogInterface.OnClickListener() {
-
-                                        @Override
-                                        public void onClick(DialogInterface dialog,
-                                                            int which) {
-                                            Orders.response(ords[_id].order_id,1);
-                                        }
-                                    })
-                            .setNegativeButton("拒絕",
-                                    new DialogInterface.OnClickListener() {
-
-                                        @Override
-                                        public void onClick(DialogInterface dialog,
-                                                            int which) {
-                                            // TODO Auto-generated method stub
-                                            Orders.response(ords[_id].order_id,0);
-                                        }
-                                    }).show();
-                }
-
+                accept_Fragment mFrag = new accept_Fragment();
+                Bundle bnd = new Bundle();
+                bnd.putInt("post_id",ords[_id].post_id) ;
+                bnd.putInt("usr_id",ords[_id].user_id) ;
+                bnd.putInt("ord_id",_id) ;
+                mFrag.setArguments(bnd);
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.contendor,mFrag).commit();
             }
+
+
         });
         return  postHistroy;
     }
