@@ -4,6 +4,8 @@ package com.example.admin.eatfood.fragment;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,8 +48,29 @@ public class personal_Fragment extends Fragment {
                 UserUpdate();
             }
         });
+
+//        personalView.setFocusableInTouchMode(true);
+//        personalView.requestFocus();
+//        personalView.setOnKeyListener( new View.OnKeyListener()
+//        {
+//            @Override
+//            public boolean onKey( View v, int keyCode, KeyEvent event )
+//            {
+//                if( keyCode == KeyEvent.KEYCODE_BACK )
+//                {
+//                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+//                    fragmentManager.beginTransaction().replace(R.id.contendor,new Home_Fragment()).commit();
+//                }
+//                return false;
+//            }
+//        } );
+
+
         return personalView;
     }
+
+
+
 
     public void UserUpdate(){
         if(password.getText().toString().equals(usr.password)){

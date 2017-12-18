@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -99,7 +100,7 @@ public class post_Fragment extends Fragment {
         new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int monthOfYear, int dayOfMonth) {
-                date = String.format("%d-%d-%d", year, monthOfYear, dayOfMonth);
+                date = String.format("%d-%d-%d", year, monthOfYear+1, dayOfMonth);
                 btn.setText(date);
             }
         }, year, month, day).show();
@@ -116,23 +117,23 @@ public class post_Fragment extends Fragment {
 
     }
 
-    @SuppressLint("ResourceType")
     private void create_post(){
-        Posts pst = new Posts();
-        pst.restaurant_name = ((EditText) PostView.findViewById(R.id.restaurant_name)).getText().toString();
-        pst.restaurant_branch = ((EditText) PostView.findViewById(R.id.restaurant_branch)).getText().toString();
-        pst.restaurant_address = ((EditText) PostView.findViewById(R.id.restaurant_address)).getText().toString();
-        pst.people_limit = Integer.parseInt(((EditText) PostView.findViewById(R.id.people_limit__)).getText().toString());
-        pst.meeting_date = date;
-        pst.content = ((EditText) PostView.findViewById(R.id.content)).getText().toString();
-        pst.cate_id = cate_choice;
-        pst.sex_limit = sex_choice;
-        pst.owner_id = User.getUsr().id;
-
-        if( pst.create()){
-            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-            fragmentManager.beginTransaction().replace(R.id.contendor,new Home_Fragment()).commit();
-        }
+//        Posts pst = new Posts();
+//        pst.restaurant_name = ((EditText) PostView.findViewById(R.id.restaurant_name)).getText().toString();
+//        pst.restaurant_branch = ((EditText) PostView.findViewById(R.id.restaurant_branch)).getText().toString();
+//        pst.restaurant_address = ((EditText) PostView.findViewById(R.id.restaurant_address)).getText().toString();
+//        pst.people_limit = Integer.parseInt(((EditText) PostView.findViewById(R.id.people_limit__)).getText().toString());
+//        pst.meeting_date = date;
+//        pst.content = ((EditText) PostView.findViewById(R.id.content)).getText().toString();
+//        pst.cate_id = cate_choice;
+//        pst.sex_limit = sex_choice;
+//        pst.owner_id = User.getUsr().id;
+        Log.e("date",date);
+//
+//        if( pst.create()){
+//            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+//            fragmentManager.beginTransaction().replace(R.id.contendor,new Home_Fragment()).commit();
+//        }
     }
 
 
