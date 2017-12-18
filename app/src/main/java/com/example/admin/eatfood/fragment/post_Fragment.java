@@ -118,22 +118,21 @@ public class post_Fragment extends Fragment {
     }
 
     private void create_post(){
-//        Posts pst = new Posts();
-//        pst.restaurant_name = ((EditText) PostView.findViewById(R.id.restaurant_name)).getText().toString();
-//        pst.restaurant_branch = ((EditText) PostView.findViewById(R.id.restaurant_branch)).getText().toString();
-//        pst.restaurant_address = ((EditText) PostView.findViewById(R.id.restaurant_address)).getText().toString();
-//        pst.people_limit = Integer.parseInt(((EditText) PostView.findViewById(R.id.people_limit__)).getText().toString());
-//        pst.meeting_date = date;
-//        pst.content = ((EditText) PostView.findViewById(R.id.content)).getText().toString();
-//        pst.cate_id = cate_choice;
-//        pst.sex_limit = sex_choice;
-//        pst.owner_id = User.getUsr().id;
-        Log.e("date",date);
-//
-//        if( pst.create()){
-//            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-//            fragmentManager.beginTransaction().replace(R.id.contendor,new Home_Fragment()).commit();
-//        }
+        Posts pst = new Posts();
+        pst.restaurant_name = ((EditText) PostView.findViewById(R.id.restaurant_name)).getText().toString();
+        pst.restaurant_branch = ((EditText) PostView.findViewById(R.id.restaurant_branch)).getText().toString();
+        pst.restaurant_address = ((EditText) PostView.findViewById(R.id.restaurant_address)).getText().toString();
+        pst.people_limit = Integer.parseInt(((EditText) PostView.findViewById(R.id.people_limit__)).getText().toString());
+        pst.meeting_date = date;
+        pst.content = ((EditText) PostView.findViewById(R.id.content)).getText().toString();
+        pst.cate_id = cate_choice;
+        pst.sex_limit = sex_choice;
+        pst.owner_id = User.getUsr().id;
+
+        if( pst.create()){
+            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.contendor,new Home_Fragment()).commit();
+        }
     }
 
 
