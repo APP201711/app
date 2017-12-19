@@ -3,14 +3,18 @@ package com.example.admin.eatfood.tab;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
 import com.example.admin.eatfood.R;
+import com.example.admin.eatfood.fragment.accept_Fragment;
+import com.example.admin.eatfood.fragment.request_Fragment;
 import com.example.admin.eatfood.model.Orders;
 
 import java.util.ArrayList;
@@ -57,6 +61,26 @@ public class Tab_request_histroy_Fragment extends Fragment {
                 new String[]{"title" , "id","text"} ,
                 new int[]{android.R.id.text1 , android.R.id.text2, android.R.id.text2});
         listView.setAdapter(listAdapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                ListView listView = (ListView) parent;
+                HashMap<String , String> data = (HashMap<String , String>) listView.getItemAtPosition(position);
+                final int _id = Integer.parseInt(data.get("id"));
+                request_Fragment mFrag = new request_Fragment();
+                Bundle bnd = new Bundle();
+                bnd.putInt("id",ords[_id].post_id) ;
+                bnd.putString("order","1"); ;
+                mFrag.setArguments(bnd);
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.contendor,mFrag).commit();
+            }
+
+
+        });
+
+
         return requestHistroy;
     }
 }
