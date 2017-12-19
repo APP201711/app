@@ -1,47 +1,79 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.admin.eatfood123.fragment.Home_Fragment">
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <!-- TODO: Update blank fragment layout -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <!--<ImageView-->
-        <!--android:id="@+id/imageView3"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_weight="1"-->
-        <!--android:src="@drawable/eatfood_logo" />-->
 
         <TextView
-            android:id="@+id/textView11"
+            android:id="@+id/textView12"
             android:layout_width="match_parent"
-            android:layout_height="42dp"
+            android:layout_height="61dp"
             android:layout_weight="0" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
             android:layout_weight="0"
             android:orientation="horizontal">
 
             <!--app:layout_constraintTop_toBottomOf="@+id/mTitle" />-->
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="16dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="刊登者" />
 
+            <TextView
+                android:id="@+id/post_id"
+                android:layout_width="265dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="TextView" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="0"
+            android:orientation="horizontal">
+
+            <!--app:layout_constraintTop_toBottomOf="@+id/mTitle" />-->
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="16dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="種類" />
+
+            <TextView
+                android:id="@+id/cate"
+                android:layout_width="265dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="TextView" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
             android:layout_weight="0"
             android:orientation="horizontal">
 
@@ -54,7 +86,7 @@
                 android:text="餐廳" />
 
             <TextView
-                android:id="@+id/Resname"
+                android:id="@+id/restaurant_name"
                 android:layout_width="274dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -65,9 +97,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
             android:layout_weight="0"
             android:orientation="horizontal">
 
@@ -80,7 +112,7 @@
                 android:text="分店" />
 
             <TextView
-                android:id="@+id/Rescate"
+                android:id="@+id/restaurant_branch"
                 android:layout_width="273dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -91,9 +123,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
             android:layout_weight="0."
             android:orientation="horizontal">
 
@@ -106,7 +138,7 @@
                 android:text="地址" />
 
             <TextView
-                android:id="@+id/Resaddr"
+                android:id="@+id/restaurant_address"
                 android:layout_width="272dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -117,9 +149,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
             android:layout_weight="0"
             android:orientation="horizontal">
 
@@ -132,7 +164,7 @@
                 android:text="日期" />
 
             <TextView
-                android:id="@+id/Postdate"
+                android:id="@+id/date"
                 android:layout_width="271dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -143,9 +175,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
             android:layout_weight="0"
             android:orientation="horizontal">
 
@@ -155,10 +187,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
-                android:text="剩餘人數" />
+                android:text="性別限制" />
 
             <TextView
-                android:id="@+id/Postpeople"
+                android:id="@+id/sex_limit"
                 android:layout_width="225dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -169,49 +201,23 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:layout_marginTop="@dimen/activity_horizontal_margin"
-            android:layout_weight="0"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView7"
-                android:layout_width="28dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center_vertical"
-                android:text="申請者帳號" />
-
-            <TextView
-                android:id="@+id/Usrname"
-                android:layout_width="225dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="TextView" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
             android:layout_weight="0"
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/textView"
-                android:layout_width="80dp"
+                android:layout_width="29dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
-                android:text="申請者手機號碼" />
+                android:text="人數限制" />
 
             <TextView
-                android:id="@+id/Usrphone"
-                android:layout_width="221dp"
+                android:id="@+id/people_limit_"
+                android:layout_width="225dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="TextView" />
@@ -220,45 +226,69 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
             android:layout_weight="0"
-            android:orientation="vertical">
+            android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/btn_accept"
-                android:layout_width="match_parent"
+
+            <TextView
+                android:layout_width="22dp"
                 android:layout_height="wrap_content"
-                android:background="@color/colorPrimary"
-                android:text="接受"
-                android:textAlignment="center"
-                android:textColor="@color/colorText" />
+                android:layout_weight="1"
+                android:text="剩餘人數" />
 
+            <TextView
+                android:id="@+id/last_people"
+                android:layout_width="218dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="TextView" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:layout_height="69dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
             android:layout_weight="0"
             android:orientation="vertical">
 
-            <Button
-                android:id="@+id/btn_reject"
+            <TextView
+                android:id="@+id/textView8"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorPrimary"
-                android:text="拒絕"
-                android:textAlignment="center"
-                android:textColor="@color/colorText" />
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="說明" />
+
+            <TextView
+                android:id="@+id/content"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_weight="1"
+                android:text="TextView" />
 
         </LinearLayout>
 
+        <Button
+            android:id="@+id/btn_request"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="0"
+            android:background="@color/colorPrimary"
+            android:text="Request"
+            android:textAlignment="center"
+            android:textColor="@color/colorText"
+            android:visibility="visible" />
 
 
     </LinearLayout>
 
-</FrameLayout>
+
+</android.support.constraint.ConstraintLayout>

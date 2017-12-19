@@ -67,7 +67,7 @@ public class request_Fragment extends Fragment {
         }
         if(!(Orders.check(pst))){
             Toast.makeText(getActivity(),
-                    "您已送出要求,請在History區查看回復.", Toast.LENGTH_LONG).show();
+                    "您已送出要求,請在[歷史資料]查看回復.", Toast.LENGTH_LONG).show();
         }
 
         if(usr.id == pst.owner_id){
