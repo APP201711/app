@@ -62,7 +62,7 @@ public class request_Fragment extends Fragment {
         last_people.setText(String.valueOf(lasts));
         content.setText(pst.content);
 
-        if(usr.id == pst.owner_id || lasts == 0 || !(Orders.check(pst)) || (pst.sex_limit == 1 && usr.sex.equals(0)) || (pst.sex_limit == 2 && usr.sex.equals(1))){
+        if(usr.id == pst.owner_id || lasts == 0 || !(Orders.check(pst)) || (pst.sex_limit == 1 && usr.sex.equals(0)) || bundle.getString("order") != null || (pst.sex_limit == 2 && usr.sex.equals(1))){
             request.setVisibility(View.INVISIBLE);
         }
         if(!(Orders.check(pst))){
